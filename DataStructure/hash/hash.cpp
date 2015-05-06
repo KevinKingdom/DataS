@@ -4,6 +4,41 @@
 
 using namespace std;
 
+int Init_HashTable(){
+	int i;
+	count=0;
+	size=0;
+	Hash_length=hashsize[size];
+	elem=new Elemtype[hashsize[size]];
+	if(!elem){
+		cout<<"内存申请失败"<<"\n";
+		exit(0);
+	}
+	for(i=0;i<size;i++){
+		elem[i].key=NULLKEY;
+	}
+	return 1;
+}
+
+void Destroy_HashTable(){
+	delete[] elem;
+	elem=NULL;
+	count=0;
+	size=0;
+}
+
+unsigned Hash(KeyType k){
+	return k%Hash_length;
+}
+
+void Collision(int &p;int d){
+	p=(p+d)%Hash_length;
+}
+
+bool Search_Hash(KeyType k,int &p){
+	c=0;
+
+
 
 
 
